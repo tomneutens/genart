@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>A JavaScript project</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+  }
+  .code {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: 0;
+  }
+  .art {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-basis: 0;
+  }
+
+  .blockly {
+    flex-grow: 1;
+  }
+  #canvasContainer {
+    flex-grow: 1;
+  }
+</style>
+<body>
+  <div class="code">
+    <h1>Code!</h1>
+    <div class="blockly"></div>
+  </div>
+  <div class="art">
+    <h1>Art!</h1>
+    <div id="canvasContainer">
+      <canvas id="artwork" width="500" height="500"></canvas>
+    </div>
+  </div>
+  
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>
