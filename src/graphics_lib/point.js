@@ -57,9 +57,9 @@ class Point{
      * @param {*} ctx 2D canvas drawing context
      * @param {*} diameter diameter of the point to draw
      */
-    draw(ctx, diameter=5){
+    draw(ctx, diameter=5, offset=0){
         ctx.beginPath();
-        ctx.arc(this.x, this.y, diameter, 0, 360);
+        ctx.arc(this.x + offset, this.y + offset, diameter, 0, 360);
         ctx.closePath();
         ctx.stroke();
         ctx.fill();

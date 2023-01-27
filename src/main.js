@@ -3,9 +3,11 @@ import BlocklyController from "./blockly_controller.js"
 import CanvasController from "./canvas_controller.js"
 import DataProcController from "./data_proc_controller.js";
 
+let drawingOffset = 25;
+
 let bController = new BlocklyController();
-let cController = new CanvasController("artwork");
-let dpController = new DataProcController(cController.getWidth(), cController.getHeight())
+let cController = new CanvasController("artwork", drawingOffset);
+let dpController = new DataProcController(cController.getWidth() - 2*drawingOffset, cController.getHeight() - 2*drawingOffset)
 let canvasContainer = document.getElementById("canvasContainer");
 
 // Attach resize observer to canvas
@@ -23,8 +25,8 @@ function main(){
   cController.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight)
   bController.injectBlockly(".blockly")
   bController.addProgramChangedListener((distanceMatrix) => {
-    //let pointCloud = dpController.getPointCloudTSne(distanceMatrix);
-    let pointCloud = dpController.getPointCloud(distanceMatrix);
+    let pointCloud = dpController.getPointCloudTSne(distanceMatrix);
+    //let pointCloud = dpController.getPointCloud(distanceMatrix);
     cController.setPointCloudDataData(pointCloud);
     cController.paint();
   })
